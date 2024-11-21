@@ -1,0 +1,36 @@
+<header class="header">
+    <span class="menus">
+        <nav>
+            <ul>
+                <li><a routerLink="/home" routerLinkActive="active">
+                    <fa-icon [icon]="faHouse" class="menu-icon"></fa-icon>Home
+                </a></li>
+                <li><a routerLink="/contact" routerLinkActive="active">
+                    <fa-icon [icon]="faAddressBook" class="menu-icon"></fa-icon>Contact
+                </a></li>
+                <li><a routerLink="/about" routerLinkActive="active">
+                    <fa-icon [icon]="faAddressCard" class="menu-icon"></fa-icon>About
+                </a></li>
+            </ul>
+            
+        </nav>
+    </span>
+    <span class="signins">
+        <nav *ngIf="!isAuthenticated">
+            <a 
+                routerLink="/signin" routerLinkActive="active" class="login-details"
+            >
+                Sign In<fa-icon [icon]="faRightToBracket" class="menu-icon"></fa-icon>
+            </a>
+        </nav>
+        <nav *ngIf="isAuthenticated">
+            <p class="signins-status">Logged in: {{ username }} </p> 
+            <a 
+                routerLink="/home" routerLinkActive="active" class="login-details"
+                (click)="onSignOut()"
+            >
+                 Sign Out<fa-icon [icon]="faRightFromBracket" class="menu-icon"></fa-icon>
+            </a>
+        </nav>
+    </span> 
+</header>

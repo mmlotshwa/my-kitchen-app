@@ -1,0 +1,100 @@
+
+<div class="limiter">
+    <div class="container-login">
+        <div class="wrap-login">
+            <div class="login-pic">
+                <img src="images/log-form.jpeg" alt="A Meal">
+            </div>
+
+            <form class="login-form" [formGroup]="myForm" (ngSubmit)="submitForm()">
+                <span class="login-form-title">
+                    Kitchen Sign Up
+                </span>
+
+                <div class="wrap-input-row">
+                    <span class="input-column validate-input">
+                        <input class="input-txt" type="text" formControlName="firstname" placeholder="Your First Name">
+                        <span class="focus-input"></span>
+                        <small *ngIf="myForm.get('firstname')?.errors?.['required'] && (myForm.get('firstname')?.dirty || submitted)" class="alert-validate" data-validate="First name is required">
+                            <fa-icon 
+                                *ngIf="myForm.get('firstname')?.invalid && (myForm.get('firstname')?.dirty || submitted)"
+                                [icon]="faExclamationCircle"
+                                class="fa-exclamation-circle"
+                            ></fa-icon>
+                        </small>
+                        <small *ngIf="myForm.get('firstname')?.errors?.['minlength'] && (myForm.get('firstname')?.dirty|| submitted)" class="alert-validate" data-validate="Name should be at least 3 letters">
+                            <fa-icon 
+                                *ngIf="myForm.get('firstname')?.invalid && (myForm.get('firstname')?.dirty || submitted)"
+                                [icon]="faExclamationCircle"
+                                class="fa-exclamation-circle"
+                            ></fa-icon>
+                        </small>
+                        
+                    </span>
+
+                    <span class="input-column validate-input">
+                        <input class="input-txt" type="text" formControlName="lastname" placeholder="Your Last Name">
+                        <span class="focus-input"></span>
+                        <small *ngIf="myForm.get('lastname')?.errors?.['required'] && (myForm.get('lastname')?.dirty || submitted)" class="alert-validate" data-validate="Last name is required">
+                            <fa-icon 
+                                *ngIf="myForm.get('lastname')?.invalid && (myForm.get('lastname')?.dirty || submitted)"
+                                [icon]="faExclamationCircle"
+                                class="fa-exclamation-circle"
+                            ></fa-icon>
+                        </small>
+                        <small *ngIf="myForm.get('firstname')?.errors?.['minlength'] && (myForm.get('lastname')?.dirty || submitted)" class="alert-validate" data-validate="Last mame should be at least 3 letters">
+                            <fa-icon 
+                                *ngIf="myForm.get('lastname')?.invalid && (myForm.get('lastname')?.dirty || submitted)"
+                                [icon]="faExclamationCircle"
+                                class="fa-exclamation-circle"
+                            ></fa-icon>
+                        </small>
+                    </span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <input class="input-txt" type="text" formControlName="email" placeholder="Email">
+                    <span class="focus-input"></span>
+                    <small *ngIf="myForm.get('email')?.errors?.['required'] && (myForm.get('email')?.dirty || submitted)" class="alert-validate" data-validate="Email is required">
+                        <fa-icon 
+                            *ngIf="myForm.get('email')?.invalid && (myForm.get('email')?.dirty || submitted)"
+                            [icon]="faExclamationCircle"
+                            class="fa-exclamation-circle"
+                        ></fa-icon>
+                    </small>
+                    <small *ngIf="myForm.get('email')?.errors?.['email'] && (myForm.get('email')?.dirty || submitted)" class="alert-validate" data-validate="Valid email format: mandlam@gmail.com">
+                        <fa-icon 
+                            *ngIf="myForm.get('email')?.invalid && (myForm.get('email')?.dirty || submitted)"
+                            [icon]="faExclamationCircle"
+                            class="fa-exclamation-circle"
+                        ></fa-icon>
+                    </small>
+                </div>
+
+                <div class="wrap-input">
+                    <select class="input-txt" formControlName="dietary" placeholder="Dietary Preference">
+                        <option value = "All">All</option>
+                        <option value = "Vegan">Vegan</option>
+                        <option value = "Vegetarian">Vegetarian</option>
+                    </select>
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input-row">
+                    <div class="input-column">
+                        <button class="login-form-btn" type="submit" [disabled]="myForm.pristine">
+                            Save
+                        </button>
+                    </div>
+                    
+                    <div class="input-column">
+                        <button class="login-form-btn" type="submit" (onclick)="onCancel()">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

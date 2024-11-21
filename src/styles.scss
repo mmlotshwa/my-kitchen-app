@@ -1,0 +1,79 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* General Styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height:100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+  
+  /* Header Styles */
+  app-header {
+    background-color: #030346;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Sidebar Styles */
+  app-sidebar {
+    background-color: #030346e3;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+    }
+  
+    app-sidebar {
+      width: 100%;
+      order: -1; /* To make the sidebar appear above content on mobile */
+    }
+  
+    .content {
+      padding: 10px;
+    }
+  }
+  
+  /* Footer Styles */
+  app-footer {
+    background-color: #030346;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+  }
+
+  li a.active {
+    font-weight: bold;
+    color: #38023a;
+  }
+  
+  

@@ -1,0 +1,72 @@
+
+<div class="limiter">
+    <div class="container-login">
+        <div class="wrap-login">
+            <div class="login-pic">
+                <img src="images/log-form.jpeg" alt="A Meal">
+            </div>
+
+            <form class="login-form" [formGroup]="myForm" (ngSubmit)="submitForm()">
+                <span class="login-form-title">
+                    Kitchen Sign In
+                </span>
+
+                <div class="wrap-input validate-input">
+                    <input class="input-txt" type="text" formControlName="email" placeholder="Email">
+                    <span class="focus-input"></span>
+                    <span class="symbol-input">
+                        <fa-icon class="fa-envelope" [icon]="faEnvelope"></fa-icon>
+                    </span>
+                    <small *ngIf="myForm.get('email')?.errors?.['required'] && (myForm.get('email')?.touched || submitted)" class="alert-validate" data-validate="Email is required">
+                        <fa-icon 
+                            *ngIf="myForm.get('email')?.invalid && (myForm.get('email')?.touched || submitted)"
+                            [icon]="faExclamationCircle"
+                            class="fa-exclamation-circle"
+                        ></fa-icon>
+                    </small>
+                    <small *ngIf="myForm.get('email')?.errors?.['email'] && (myForm.get('email')?.touched || submitted)" class="alert-validate" data-validate="Valid email format: mandlam@gmail.com">
+                        <fa-icon 
+                            *ngIf="myForm.get('email')?.invalid && (myForm.get('email')?.touched || submitted)"
+                            [icon]="faExclamationCircle"
+                            class="fa-exclamation-circle"
+                        ></fa-icon>
+                    </small>
+                </div>
+
+                <div class="wrap-input">
+                    <input class="input-txt" [type]="passwordVisible ? 'text' : 'password'" formControlName="password" placeholder="Password">
+                    <span class="focus-input"></span>
+                    <span class="symbol-input">
+                        <fa-icon class="fa-lock" [icon]="faLock"></fa-icon>
+                    </span>
+                    <fa-icon [icon]="passwordVisible ? faEye : faEyeSlash" class="toggle-icon" (click)="toggleVisibility()"></fa-icon>
+                    
+                </div>
+                
+                <div class="container-login-form-btn">
+                    <button class="login-form-btn" type="submit" [disabled]="myForm.invalid">
+                        Login
+                    </button>
+                </div>
+                <div class="error-messages">
+                    <h3>{{ message }}</h3>
+                </div>
+                <div class="text-center">
+                    <span class="txt1">
+                        Forgot
+                    </span>
+                    <a class="txt2" href="#">
+                        Username / Password?
+                    </a>
+                </div>
+
+                <div class="text-center">
+                    <a class="txt2" routerLink="/signup" routerLinkActive="active">
+                        Create your Account
+                        <fa-icon class="fa-arrow-right" [icon]="faArrowRight"></fa-icon>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

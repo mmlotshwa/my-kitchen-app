@@ -1,0 +1,12 @@
+<div class="home">
+    <h1>My Kitchen Dishes</h1>
+    <p>Get a taste of the home-made foods!</p>
+</div>
+
+<div class="photo-grid">
+  <div *ngFor="let photo of photos" class="photo-item">
+    <img [src]="photo.url" [alt]="photo.describe" />
+    <p class="caption">{{ photo.describe }}</p>
+  </div>
+</div>
+  
